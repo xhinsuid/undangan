@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Undangan Pernikahan | Aldi & Sari</title>
+    <!-- Fonts & Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(145deg, #f9f3ff 0%, #f0e6fa 100%);
+            color: #2d2a3e;
+            scroll-behavior: smooth;
+        }
+
+        /* Warna ungu profesional & ceria */
+        :root {
+            --purple-deep: #5e3a8c;
+            --purple-soft: #8b6bb5;
+            --purple-light: #cbb2e5;
+            --purple-mist: #ede4f5;
+            --accent-gold: #d6b56e;
+            --text-dark: #2b2738;
+            --text-soft: #4a4562;
+            --white-soft: #fffdf9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white-soft);
+            box-shadow: 0 25px 45px -12px rgba(46, 27, 71, 0.25);
+            border-radius: 2rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Dekorasi halus */
+        .bg-flower {
+            position: absolute;
+            opacity: 0.08;
+            pointer-events: none;
+            font-size: 180px;
+            z-index: 0;
+        }
+
+        section {
+            padding: 2.5rem 1.8rem;
+            position: relative;
+            z-index: 2;
+            border-bottom: 1px solid rgba(139, 107, 181, 0.15);
+        }
+
+        .hero {
+            text-align: center;
+            background: linear-gradient(130deg, #ffffff 0%, #faf5ff 100%);
+            padding: 3rem 1.8rem 2.2rem;
+        }
+
+        .ornament {
+            font-size: 2.2rem;
+            color: var(--purple-soft);
+            letter-spacing: 6px;
+        }
+
+        .couple-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.6rem;
+            font-weight: 600;
+            color: var(--purple-deep);
+            margin: 0.8rem 0 0.5rem;
+            letter-spacing: -0.3px;
+        }
+
+        .date-badge {
+            background: var(--purple-mist);
+            display: inline-block;
+            padding: 0.5rem 1.4rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--purple-deep);
+            margin: 1rem 0 0.8rem;
+        }
+
+        .quote-lucu {
+            font-size: 0.95rem;
+            background: #fff0f9;
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            color: #a3588b;
+            font-style: italic;
+        }
+
+        .btn-rsvp {
+            background: var(--purple-deep);
+            color: white;
+            border: none;
+            padding: 0.85rem 2rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 6px 14px rgba(94, 58, 140, 0.25);
+            margin-top: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-rsvp:hover {
+            background: #472e6b;
+            transform: translateY(-2px);
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--purple-deep);
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.2px;
+        }
+
+        .info-card {
+            background: #fefaff;
+            border-radius: 1.5rem;
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            border: 1px solid rgba(139, 107, 181, 0.2);
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .detail-item i {
+            width: 32px;
+            color: var(--purple-soft);
+            font-size: 1.25rem;
+            text-align: center;
+        }
+
+        .map-link {
+            color: var(--purple-deep);
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px dashed var(--purple-light);
+        }
+
+        .gallery-grid {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 0.8rem;
+        }
+
+        .gallery-item {
+            width: 100px;
+            height: 100px;
+            background: var(--purple-mist);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8rem;
+            transition: all 0.2s;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.05);
+        }
+
+        .lucu-moment {
+            background: #fef2e8;
+            border-radius: 1.5rem;
+            padding: 1rem 1.5rem;
+            text-align: center;
+            border-left: 5px solid var(--accent-gold);
+        }
+
+        .story-step {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-icon {
+            background: var(--purple-mist);
+            width: 48px;
+            height: 48px;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--purple-deep);
+        }
+
+        .countdown {
+            background: linear-gradient(110deg, #5e3a8c10, #8b6bb510);
+            padding: 1rem;
+            border-radius: 1.5rem;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .cd-box {
+            flex: 1;
+            background: white;
+            border-radius: 1.2rem;
+            padding: 0.6rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        .cd-number {
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: var(--purple-deep);
+        }
+
+        .footer {
+            text-align: center;
+            background: #f5edfc;
+            padding: 1.5rem;
+            font-size: 0.8rem;
+            color: #6b5786;
+        }
+
+        /* Modal RSVP */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(46, 27, 71, 0.7);
+            backdrop-filter: blur(4px);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-card {
+            background: white;
+            max-width: 380px;
+            width: 85%;
+            border-radius: 2rem;
+            padding: 1.8rem;
+            text-align: center;
+            position: relative;
+        }
+        .modal-card input, .modal-card select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            font-family: inherit;
+        }
+        .modal-card button {
+            background: var(--purple-deep);
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+        .close-modal {
+            position: absolute;
+            top: 15px; right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        @media (max-width: 500px) {
+            .couple-name { font-size: 2rem; }
+            section { padding: 1.8rem; }
+        }
+        .heart-beat {
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); text-shadow: 0 0 3px #cbb2e5; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- background hiasan halus -->
+    <div class="bg-flower" style="top: 20px; right: -20px;">🌸</div>
+    <div class="bg-flower" style="bottom: 100px; left: -30px; transform: rotate(15deg);">💜</div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="ornament">✦  𓆸  ✦</div>
+        <div class="couple-name">Aldi & Sari</div>
+        <div class="date-badge">
+            <i class="fas fa-calendar-alt"></i> Sabtu, 12 Juli 2026
+        </div>
+        <div class="quote-lucu">
+            <i class="fas fa-paw"></i> "Aku udah sah, kalian kapan?" 
+        </div>
+        <button class="btn-rsvp" id="openRsvpBtn">
+            <i class="fas fa-envelope-open-text"></i> Konfirmasi Kehadiran
+        </button>
+    </section>
+
+    <!-- Countdown -->
+    <section style="padding-top: 0.5rem; padding-bottom: 1rem;">
+        <div class="countdown">
+            <div class="cd-box"><div class="cd-number" id="days">00</div><div>Hari</div></div>
+            <div class="cd-box"><div class="cd-number" id="hours">00</div><div>Jam</div></div>
+            <div class="cd-box"><div class="cd-number" id="minutes">00</div><div>Menit</div></div>
+            <div class="cd-box"><div class="cd-number" id="seconds">00</div><div>Detik</div></div>
+        </div>
+    </section>
+
+    <!-- Detail Acara -->
+    <section>
+        <h2><i class="fas fa-ring"></i> Akad & Resepsi</h2>
+        <div class="info-card">
+            <div class="detail-item"><i class="fas fa-mosque"></i> <span><strong>Akad Nikah</strong> · 08.00 - 09.30 WIB</span></div>
+            <div class="detail-item"><i class="fas fa-utensils"></i> <span><strong>Resepsi</strong> · 10.00 - 14.00 WIB</span></div>
+            <div class="detail-item"><i class="fas fa-map-marker-alt"></i> <span><strong>Hotel Santika Blitar</strong><br>Jl. Ir. Soekarno, Bendogerit, Kec. Sananwetan, Kota Blitar, Jawa Timur 66133</span></div>
+            <div class="detail-item"><i class="fas fa-directions"></i> <a href="#" class="map-link" id="mapTrigger"><i class="fas fa-external-link-alt"></i> Buka di Google Maps</a></div>
+        </div>
+        <div class="lucu-moment">
+            <i class="fas fa-smile-wink"></i> <strong>Catatan kecil:</strong> Jangan lupa bawa doa & senyuman, buat yang masih pacaran kapan nih ngasih kepastian🤭✨
+        </div>
+    </section>
+
+    <!-- Cerita Lucu & Profesional -->
+    <section>
+        <h2><i class="fas fa-heart"></i> Perjalanan kami</h2>
+        <div class="story-step">
+            <div class="story-icon">🍜</div>
+            <div><strong>Awal bertemu di mie ayam pak hambali</strong><br>“01-01-26 Dihari yang dingin itu kami datang bersamaan dan memesan menu yang sama, tak sengaja kami saling bertatapan walaupun hanya 1 detik”</div>
+        </div>
+        <div class="story-step">
+            <div class="story-icon">💼</div>
+            <div><strong>Melamar pekerjaan</strong><br>"10-01-26 Saat aku tiba di tampat yang mau kulamar, aku melihat Dia(Aldi). Ternyata dia atasan disana, dan dari hari itu kami berkenalan"</div>
+        </div>
+        <div class="story-step">
+            <div class="story-icon">💍</div>
+            <div><strong>Sore yang panas itu</strong><br>"10-07-26 Disore jingga itu tepat 6 bulan setelah berkenalan, Aldi berkata ingin memjadikan aku istrinya, dan akupun menerimanya.”</div>
+        </div>
+    </section>
+
+    <!-- Galeria Ungu & Lucu (simbolik) -->
+    <section>
+        <h2><i class="fas fa-camera-retro"></i> Momen kecil</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">💜</div>
+            <div class="gallery-item">🐣</div>
+            <div class="gallery-item">🍰</div>
+            <div class="gallery-item">🎈</div>
+            <div class="gallery-item">📸</div>
+        </div>
+        <p style="text-align: center; margin-top: 12px; font-size: 0.8rem; color: #8a73a8;">Memorable item</p>
+    </section>
+
+    <!-- Pesan untuk tamu -->
+    <section>
+        <h2><i class="fas fa-comment-dots"></i> Ucapan & Doa</h2>
+        <div class="info-card" style="background: #faf3ff;">
+            <p style="margin-bottom: 12px;">Kirimkan ucapan manis atau kocak untuk memori indah kami ↓</p>
+            <div style="display: flex; gap: 8px;">
+                <input type="text" id="wishInput" placeholder="Tulis ucapan..." style="flex:1; padding: 10px; border-radius: 60px; border: 1px solid #ddd;">
+                <button id="sendWishBtn" style="background: var(--purple-deep); border: none; border-radius: 60px; padding: 0 20px; color: white; font-weight: bold;">Kirim</button>
+            </div>
+            <div id="wishList" style="margin-top: 20px; max-height: 180px; overflow-y: auto; text-align: left;">
+                <p style="font-size: 0.85rem; background: white; border-radius: 30px; padding: 8px 12px;"><i class="fas fa-comment"></i> <strong>Bude Ani:</strong> Langgeng terus yaa, kamu Aldi harus ngalah sama istri!!</p>
+                <p style="font-size: 0.85rem; background: white; border-radius: 30px; padding: 8px 12px;"><i class="fas fa-comment"></i> <strong>bray:</strong>Cariin calon buat gua dong.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="footer">
+        <i class="fas fa-heart" style="color: #b287c2;"></i> Dengan cinta & canda<i class="fas fa-heart" style="color: #b287c2;"></i><br>
+        © 2026 • <a href="https://github.com/xhinsuid">xhinsuid</a>
+    </div>
+</div>
+
+<!-- Modal RSVP -->
+<div id="rsvpModal" class="modal">
+    <div class="modal-card">
+        <span class="close-modal" id="closeModalBtn">&times;</span>
+        <h3 style="color: var(--purple-deep); margin-bottom: 15px;"><i class="fas fa-check-circle"></i> Konfirmasi Kehadiran</h3>
+        <input type="text" id="guestName" placeholder="Nama lengkap" autocomplete="off">
+        <select id="attendanceStatus">
+          <option value="Hadir">✨Hadir dong masa engga
+          <option value="Berhalangan">😢 Berhalangan nih, sorry banget yaa</option>
+        </select>
+        <input type="number" id="totalGuest" placeholder="Jumlah tamu (termasuk anda)" min="1" max="6">
+        <button id="submitRsvpBtn">Kirim Konfirmasi</button>
+        <p style="font-size: 12px; margin-top: 12px;">*RSVP membantu kami menyiapkan segala sesuatunya 💜</p>
+    </div>
+</div>
+
+<script>
+    // Set wedding date: 12 Juli 2026 jam 08:00:00 WIB -> UTC+7
+    const weddingDate = new Date(2026, 6, 12, 8, 0, 0); // bulan Juli = index 6
+
+    function updateCountdown() {
+        const now = new Date();
+        const diff = weddingDate - now;
+        if (diff <= 0) {
+            document.getElementById('days').innerText = '00';
+            document.getElementById('hours').innerText = '00';
+            document.getElementById('minutes').innerText = '00';
+            document.getElementById('seconds').innerText = '00';
+            return;
+        }
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (86400000)) / (3600000));
+        const minutes = Math.floor((diff % 3600000) / 60000);
+        const seconds = Math.floor((diff % 60000) / 1000);
+        document.getElementById('days').innerText = days < 10 ? '0'+days : days;
+        document.getElementById('hours').innerText = hours < 10 ? '0'+hours : hours;
+        document.getElementById('minutes').innerText = minutes < 10 ? '0'+minutes : minutes;
+        document.getElementById('seconds').innerText = seconds < 10 ? '0'+seconds : seconds;
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Map trigger (contoh arah google maps dummy, bisa ganti dengan link maps asli)
+    document.getElementById('mapTrigger').addEventListener('click', function(e){
+        e.preventDefault();
+        window.open('https://maps.app.goo.gl/JqDSozHcB4JBzomS6', '_blank');
+        // untuk demo, lebih baik arahkan ke google maps search lokasi fiktif?
+        alert('Jl. Ir. Soekarno, Bendogerit, Kec. Sananwetan, Kota Blitar, Jawa Timur 66133.');
+        // Bisa pakai link asli, misal: https://goo.gl/maps/xxxx
+    });
+
+    // Modal RSVP
+    const modal = document.getElementById('rsvpModal');
+    const openBtn = document.getElementById('openRsvpBtn');
+    const closeBtn = document.getElementById('closeModalBtn');
+    openBtn.addEventListener('click', () => { modal.style.display = 'flex'; });
+    closeBtn.addEventListener('click', () => { modal.style.display = 'none'; });
+    window.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
+
+    // Submit RSVP (simulasi)
+    const submitRsvp = document.getElementById('submitRsvpBtn');
+    submitRsvp.addEventListener('click', () => {
+        const nama = document.getElementById('guestName').value.trim();
+        const status = document.getElementById('attendanceStatus').value;
+        const jumlah = document.getElementById('totalGuest').value;
+        if (!nama) {
+            alert('Mohon isi nama terlebih dahulu 🤵‍♀️🤵‍♂️');
+            return;
+        }
+        if (!jumlah || jumlah < 1) {
+            alert('Jumlah tamu minimal 1 ya!');
+            return;
+        }
+        alert(`Terima kasih ${nama}, konfirmasi ${status} dengan ${jumlah} orang. Doa terbaik untuk kami ya! 💜`);
+        modal.style.display = 'none';
+        // reset form
+        document.getElementById('guestName').value = '';
+        document.getElementById('totalGuest').value = '1';
+        document.getElementById('attendanceStatus').value = 'Hadir';
+    });
+
+    // Wishlist (ucapan lucu)
+    const wishInput = document.getElementById('wishInput');
+    const sendWish = document.getElementById('sendWishBtn');
+    const wishContainer = document.getElementById('wishList');
+
+    function addWishToDom(text, sender = 'Tamu') {
+        const p = document.createElement('p');
+        p.style.cssText = 'font-size:0.85rem; background:white; border-radius:30px; padding:8px 12px; margin-bottom:8px; border-left: 3px solid #cbb2e5;';
+        p.innerHTML = `<i class="fas fa-comment-dots"></i> <strong>${escapeHtml(sender)}:</strong> ${escapeHtml(text)}`;
+        wishContainer.prepend(p);
+        // limit items show
+        if (wishContainer.children.length > 7) {
+            wishContainer.removeChild(wishContainer.lastChild);
+        }
+    }
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+            return c;
+        });
+    }
+
+    sendWish.addEventListener('click', () => {
+        let msg = wishInput.value.trim();
+        if (msg === "") {
+            alert("Tulis ucapan dulu dong~");
+            return;
+        }
+        // random nama tamu biar seru
+        const randomNames = ["Pak hambali Mieyam","Mas do Juragan lele","Mas jal","Pak sugeng bambu","github: xhinsuid"];
+        const fakeName = randomNames[Math.floor(Math.random() * randomNames.length)];
+        addWishToDom(msg, fakeName);
+        wishInput.value = "";
+        // animasi kecil
+        sendWish.style.transform = "scale(0.95)";
+        setTimeout(() => { sendWish.style.transform = ""; }, 150);
+    });
+
+    // tambahan beberapa pesan default agar interaktif
+    setTimeout(() => {
+        if(wishContainer.children.length <= 2) {
+            addWishToDom("Semoga langgeng ya, kalo lagi senggang mampir aja nanti kukasih gratis🍫","Bakmi cap Hakim");
+        }
+    }, 500);
+    
+    // hiasan hati kecil
+    const heartIcons = document.querySelectorAll('.fas.fa-heart');
+    if(heartIcons.length) {
+        setInterval(() => {
+            document.querySelectorAll('.fa-heart').forEach(heart => {
+                if(heart.classList) heart.classList.toggle('heart-beat');
+            });
+        }, 800);
+    }
+</script>
+</body>
+</html>
